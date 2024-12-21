@@ -92,10 +92,10 @@ with st.sidebar:
 
         max_tokens1 = st.slider(
             label="Max Output Tokens",
-            min_value=50,
+            min_value=512,
             max_value=MODEL_MAX_TOKENS.get(model1, 4096),
             value=int(MODEL_MAX_TOKENS.get(model1, 4096) * 0.1),  # Default to 10% of max tokens
-            step=50,
+            step=1,
             key="max_tokens1",
             help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model1, 4096)}"
         )
@@ -114,10 +114,10 @@ with st.sidebar:
 
         max_tokens1 = st.slider(
             label="Max Output Tokens",
-            min_value=50,
+            min_value=512,
             max_value=4096,
             value=500,
-            step=50,
+            step=1,
             disabled=True,
             key="max_tokens1_disabled",
             help="Select a model to enable this slider."
@@ -145,10 +145,10 @@ with st.sidebar:
 
         max_tokens2 = st.slider(
             label="Max Output Tokens",
-            min_value=50,
+            min_value=512,
             max_value=MODEL_MAX_TOKENS.get(model2, 4096),
             value=int(MODEL_MAX_TOKENS.get(model2, 4096) * 0.1),
-            step=50,
+            step=1,
             key="max_tokens2",
             help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model2, 4096)}"
         )
@@ -167,10 +167,10 @@ with st.sidebar:
 
         max_tokens2 = st.slider(
             label="Max Output Tokens",
-            min_value=50,
+            min_value=512,
             max_value=4096,
             value=500,
-            step=50,
+            step=1,
             disabled=True,
             key="max_tokens2_disabled",
             help="Select a model to enable this slider."
@@ -198,10 +198,10 @@ with st.sidebar:
 
         max_tokens3 = st.slider(
             label="Max Output Tokens",
-            min_value=50,
+            min_value=512,
             max_value=MODEL_MAX_TOKENS.get(model3, 4096),
             value=int(MODEL_MAX_TOKENS.get(model3, 4096) * 0.1),
-            step=50,
+            step=1,
             key="max_tokens3",
             help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model3, 4096)}"
         )
@@ -220,10 +220,10 @@ with st.sidebar:
 
         max_tokens3 = st.slider(
             label="Max Output Tokens",
-            min_value=50,
+            min_value=512,
             max_value=4096,
             value=500,
-            step=50,
+            step=1,
             disabled=True,
             key="max_tokens3_disabled",
             help="Select a model to enable this slider."
