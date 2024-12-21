@@ -27,8 +27,8 @@ AVAILABLE_MODELS = list(MODEL_MAX_TOKENS.keys())
 
 # Configure the Streamlit page
 st.set_page_config(
-    page_title="🔥 Krish - The Model Comparison",
-    page_icon="❤️",
+    page_title="Krish - The Model Comparison",
+    page_icon="🔥",
     layout="wide",
     initial_sidebar_state="expanded"
 )
