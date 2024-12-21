@@ -7,16 +7,16 @@ import markdown  # To convert markdown text to HTML
 
 # Mapping of models to their maximum token limits
 MODEL_MAX_TOKENS = {
-    'mistral:latest': 32000,
-    'qwen2:latest': 128000,
-    'llama3.2:3b-instruct-q8_0': 128000,
-    'llama3.2:latest': 128000,
+    'mistral:latest': 8192,
+    'qwen2:latest': 8000,
+    'llama3.2:3b-instruct-q8_0': 4000,
+    'llama3.2:latest': 4000,
     'llama3-groq-tool-use:latest': 8192, 
     'mistral-nemo:latest': 128000,
-    'deepseek-coder:1.3b-instruct': 16000,
+    'deepseek-coder:1.3b-instruct': 4096,
     'llama3.1:latest': 128000,
-    'codellama:latest': 100000,
-    'llama3:latest': 128000,
+    'codellama:latest': 8192,
+    'llama3:latest': 8192,
     # Add more models and their max tokens as needed
 }
 
@@ -87,7 +87,7 @@ with st.sidebar:
             value=0.01,
             step=0.01,
             key="temp1",
-            help=f"Temperature for ({model1}): Adjusts the randomness of responses. Lower values (e.g., 0.1) make outputs more focused and deterministic, ideal for precise tasks. Higher values (e.g., 0.8 or 1.0) make responses more diverse and creative. Set to 0 for completely deterministic behavior."
+            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and O (argmax sampling) for ones with a well-defined answer."
         )
 
         max_tokens1 = st.slider(
@@ -97,7 +97,7 @@ with st.sidebar:
             value=int(MODEL_MAX_TOKENS.get(model1, 4096) * 0.1),  # Default to 10% of max tokens
             step=50,
             key="max_tokens1",
-            help=f"Set the maximum number of tokens for {model1}'s response. Maximum allowed: {MODEL_MAX_TOKENS.get(model1, 4096)}"
+            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model1, 4096)}"
         )
     else:
         # Placeholder sliders when no model is selected
@@ -140,7 +140,7 @@ with st.sidebar:
             value=0.01,
             step=0.01,
             key="temp2",
-            help=f"Temperature for ({model2}): Adjusts the randomness of responses. Lower values (e.g., 0.1) make outputs more focused and deterministic, ideal for precise tasks. Higher values (e.g., 0.8 or 1.0) make responses more diverse and creative. Set to 0 for completely deterministic behavior."
+            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and O (argmax sampling) for ones with a well-defined answer."
         )
 
         max_tokens2 = st.slider(
@@ -150,7 +150,7 @@ with st.sidebar:
             value=int(MODEL_MAX_TOKENS.get(model2, 4096) * 0.1),
             step=50,
             key="max_tokens2",
-            help=f"Set the maximum number of tokens for {model2}'s response. Maximum allowed: {MODEL_MAX_TOKENS.get(model2, 4096)}"
+            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model2, 4096)}"
         )
     else:
         # Placeholder sliders when no model is selected
@@ -193,7 +193,7 @@ with st.sidebar:
             value=0.01,
             step=0.01,
             key="temp3",
-            help=f"Temperature for ({model3}): Adjusts the randomness of responses. Lower values (e.g., 0.1) make outputs more focused and deterministic, ideal for precise tasks. Higher values (e.g., 0.8 or 1.0) make responses more diverse and creative. Set to 0 for completely deterministic behavior."
+            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and O (argmax sampling) for ones with a well-defined answer."
         )
 
         max_tokens3 = st.slider(
@@ -203,7 +203,7 @@ with st.sidebar:
             value=int(MODEL_MAX_TOKENS.get(model3, 4096) * 0.1),
             step=50,
             key="max_tokens3",
-            help=f"Set the maximum number of tokens for {model3}'s response. Maximum allowed: {MODEL_MAX_TOKENS.get(model3, 4096)}"
+            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model3, 4096)}"
         )
     else:
         # Placeholder sliders when no model is selected
