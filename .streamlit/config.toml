@@ -1,0 +1,12 @@
+[theme]
+base = "dark"
+
+# Optional: Customize specific colors to match your preference
+primaryColor = "#1f77b4"                # Primary color for widgets like buttons
+backgroundColor = "#0E1117"             # Background color of the main content area
+secondaryBackgroundColor = "#262730"    # Background color of sidebar and other secondary areas
+textColor = "#FAFAFA"                   # Text color
+font = "sans serif"                     # Font style ("sans serif", "serif", "monospace")
+
+# Disable Streamlit's built-in theme toggling
+disableThemeToggle = true
