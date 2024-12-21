@@ -91,7 +91,7 @@ with st.sidebar:
         )
 
         max_tokens1 = st.slider(
-            label=f"Max Tokens for {model1}",
+            label="Max Output Tokens",
             min_value=50,
             max_value=MODEL_MAX_TOKENS.get(model1, 4096),
             value=int(MODEL_MAX_TOKENS.get(model1, 4096) * 0.1),  # Default to 10% of max tokens
@@ -113,7 +113,7 @@ with st.sidebar:
         )
 
         max_tokens1 = st.slider(
-            label=f"Max Tokens for Model 1",
+            label="Max Output Tokens",
             min_value=50,
             max_value=4096,
             value=500,
@@ -144,7 +144,7 @@ with st.sidebar:
         )
 
         max_tokens2 = st.slider(
-            label=f"Max Tokens for {model2}",
+            label="Max Output Tokens",
             min_value=50,
             max_value=MODEL_MAX_TOKENS.get(model2, 4096),
             value=int(MODEL_MAX_TOKENS.get(model2, 4096) * 0.1),
@@ -166,7 +166,7 @@ with st.sidebar:
         )
 
         max_tokens2 = st.slider(
-            label=f"Max Tokens for Model 2",
+            label="Max Output Tokens",
             min_value=50,
             max_value=4096,
             value=500,
@@ -197,7 +197,7 @@ with st.sidebar:
         )
 
         max_tokens3 = st.slider(
-            label=f"Max Tokens for {model3}",
+            label="Max Output Tokens",
             min_value=50,
             max_value=MODEL_MAX_TOKENS.get(model3, 4096),
             value=int(MODEL_MAX_TOKENS.get(model3, 4096) * 0.1),
@@ -219,7 +219,7 @@ with st.sidebar:
         )
 
         max_tokens3 = st.slider(
-            label=f"Max Tokens for Model 3",
+            label="Max Output Tokens",
             min_value=50,
             max_value=4096,
             value=500,
