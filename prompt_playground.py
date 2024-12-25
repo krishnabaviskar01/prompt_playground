@@ -1,7 +1,7 @@
 import streamlit as st
 from langchain_ollama import ChatOllama
 from st_copy_to_clipboard import st_copy_to_clipboard
-import markdown  # To convert markdown text to HTML
+# Removed import markdown as it's no longer needed
 
 # ------------------------ Configuration ------------------------
 
@@ -87,7 +87,7 @@ with st.sidebar:
             value=0.01,
             step=0.01,
             key="temp1",
-            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and O (argmax sampling) for ones with a well-defined answer."
+            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer."
         )
 
         max_tokens1 = st.slider(
@@ -97,7 +97,7 @@ with st.sidebar:
             value=int(MODEL_MAX_TOKENS.get(model1, 4096) * 0.1),  # Default to 10% of max tokens
             step=1,
             key="max_tokens1",
-            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model1, 4096)}"
+            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. Maximum allowed: {MODEL_MAX_TOKENS.get(model1, 4096)}"
         )
     else:
         # Placeholder sliders when no model is selected
@@ -140,7 +140,7 @@ with st.sidebar:
             value=0.01,
             step=0.01,
             key="temp2",
-            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and O (argmax sampling) for ones with a well-defined answer."
+            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer."
         )
 
         max_tokens2 = st.slider(
@@ -150,7 +150,7 @@ with st.sidebar:
             value=int(MODEL_MAX_TOKENS.get(model2, 4096) * 0.1),
             step=1,
             key="max_tokens2",
-            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model2, 4096)}"
+            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. Maximum allowed: {MODEL_MAX_TOKENS.get(model2, 4096)}"
         )
     else:
         # Placeholder sliders when no model is selected
@@ -193,7 +193,7 @@ with st.sidebar:
             value=0.01,
             step=0.01,
             key="temp3",
-            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and O (argmax sampling) for ones with a well-defined answer."
+            help="Higher values means the model will take more risks. Try 0.9 for more creative applications, and 0 (argmax sampling) for ones with a well-defined answer."
         )
 
         max_tokens3 = st.slider(
@@ -203,7 +203,7 @@ with st.sidebar:
             value=int(MODEL_MAX_TOKENS.get(model3, 4096) * 0.1),
             step=1,
             key="max_tokens3",
-            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length.. Maximum allowed: {MODEL_MAX_TOKENS.get(model3, 4096)}"
+            help=f"The maximum number of tokens to generate in the completion. The token count of your prompt plus max_tokens cannot exceed the model's context length. Maximum allowed: {MODEL_MAX_TOKENS.get(model3, 4096)}"
         )
     else:
         # Placeholder sliders when no model is selected
@@ -349,22 +349,8 @@ if 'outputs' in st.session_state:
             emoji = "🟢" if idx == 0 else "🔵" if idx == 1 else "🟠"
             st.subheader(f"{emoji} {model}")
             if content:
-                # Convert markdown content to HTML
-                html_content = markdown.markdown(content)
-
-                # Display the content inside a styled box using HTML and CSS with dark theme
-                st.markdown(f"""
-                    <div style="
-                        border: 1px solid #444444;
-                        border-radius: 8px;
-                        padding: 15px;
-                        background-color: #2c2c2c;
-                        color: #ffffff;
-                        margin-bottom: 10px;
-                    ">
-                        {html_content}
-                    </div>
-                """, unsafe_allow_html=True)
+                # Directly use st.markdown to render the content
+                st.markdown(content, unsafe_allow_html=False)
 
                 # Add a copy button below the response
                 st_copy_to_clipboard(content, key=f"copy_{idx}")  # Copies raw markdown
