@@ -1,7 +1,7 @@
 import streamlit as st
 from langchain_ollama import ChatOllama
 from st_copy_to_clipboard import st_copy_to_clipboard
-# Removed import markdown as it's no longer needed
+
 
 # ------------------------ Configuration ------------------------
 
@@ -349,8 +349,20 @@ if 'outputs' in st.session_state:
             emoji = "🟢" if idx == 0 else "🔵" if idx == 1 else "🟠"
             st.subheader(f"{emoji} {model}")
             if content:
-                # Directly use st.markdown to render the content
-                st.markdown(content, unsafe_allow_html=False)
+                # Wrap the content in a styled div
+                html_content = f"""
+                <div style="
+                    border: 1px solid #444444;
+                    border-radius: 8px;
+                    padding: 15px;
+                    background-color: #2c2c2c;
+                    color: #ffffff;
+                    margin-bottom: 10px;
+                ">
+                    {content}
+                </div>
+                """
+                st.markdown(html_content, unsafe_allow_html=True)
 
                 # Add a copy button below the response
                 st_copy_to_clipboard(content, key=f"copy_{idx}")  # Copies raw markdown
