@@ -7,6 +7,7 @@ from st_copy_to_clipboard import st_copy_to_clipboard
 
 # Mapping of models to their maximum token limits
 MODEL_MAX_TOKENS = {
+    'deepseek-coder-v2:latest': 8192,
     'mistral:latest': 8192,
     'qwen2:latest': 8000,
     'llama3.2:3b-instruct-q8_0': 4000,
