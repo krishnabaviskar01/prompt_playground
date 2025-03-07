@@ -7,19 +7,9 @@ from st_copy_to_clipboard import st_copy_to_clipboard
 
 # Mapping of models to their maximum token limits
 MODEL_MAX_TOKENS = {
-    'sqlcoder:15b': 8000,
     'phi4:latest':4096,
-    'deepseek-coder-v2:latest': 8192,
-    'mistral:latest': 8192,
-    'qwen2:latest': 8000,
-    'llama3.2:3b-instruct-q8_0': 4000,
     'llama3.2:latest': 4000,
-    'llama3-groq-tool-use:latest': 8192, 
     'mistral-nemo:latest': 128000,
-    'deepseek-coder:1.3b-instruct': 4096,
-    'llama3.1:latest': 128000,
-    'codellama:latest': 8192,
-    'llama3:latest': 8192,
     # Add more models and their max tokens as needed
 }
 
