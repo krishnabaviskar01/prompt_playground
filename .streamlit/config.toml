@@ -10,3 +10,9 @@ font = "sans serif"                     # Font style ("sans serif", "serif", "mo
 
 # Disable Streamlit's built-in theme toggling
 disableThemeToggle = true
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = false
+enableWebsocketCompression = false
